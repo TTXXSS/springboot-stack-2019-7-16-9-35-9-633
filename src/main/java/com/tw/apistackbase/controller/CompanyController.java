@@ -1,7 +1,6 @@
 package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Company;
-import com.tw.apistackbase.model.Employee;
 import com.tw.apistackbase.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/company")
 public class CompanyController {
+    public static final int PAGE_SIZE = 2;
     @Autowired
     private CompanyService companyService;
 
@@ -42,6 +42,11 @@ public class CompanyController {
     @DeleteMapping("/{id}")
     public void deleteCompanyById(@PathVariable long id){
         companyService.deleteCompanyById(id);
+    }
+
+    @GetMapping("/{pageNum}")
+    public List<Company> getCompanyByPage(@RequestParam int pageNum){
+        return companyService.getCompanyByPage(pageNum, PAGE_SIZE);
     }
 
 }

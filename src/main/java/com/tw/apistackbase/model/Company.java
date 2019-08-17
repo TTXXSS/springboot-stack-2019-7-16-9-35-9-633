@@ -1,8 +1,11 @@
 package com.tw.apistackbase.model;
 
 import org.hibernate.annotations.Cascade;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import javax.persistence.*;
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Entity
@@ -52,4 +55,6 @@ public class Company {
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
     }
+
+
 }
