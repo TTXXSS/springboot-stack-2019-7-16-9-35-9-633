@@ -39,4 +39,9 @@ public class CompanyController {
        companyService.deleteCompany();
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteCompanyById(@PathVariable long id){
+        companyService.deleteCompanyById(id);
+    }
+
 }

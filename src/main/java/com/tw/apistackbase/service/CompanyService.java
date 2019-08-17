@@ -35,4 +35,8 @@ public class CompanyService {
         }
         return null;
     }
+
+    public void deleteCompanyById(long id){
+        companyRepository.deleteById(id);
+    }
 }
