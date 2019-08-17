@@ -19,6 +19,11 @@ public class CompanyController {
         return companyService.getAllCompany();
     }
 
+    @GetMapping("/{id}")
+    public Company getCompanyById(@PathVariable long id){
+        return companyService.getCompanyById(id);
+    }
+
     @PostMapping
     public Company addCompany(@RequestBody Company company){
         return companyService.addCompany(company);
@@ -31,7 +36,7 @@ public class CompanyController {
 
     @DeleteMapping
     public void deleteCompany(){
-
+       companyService.deleteCompany();
     }
 
 }

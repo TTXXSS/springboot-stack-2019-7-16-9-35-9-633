@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompanyService {
@@ -25,5 +26,13 @@ public class CompanyService {
 
     public void deleteCompany(){
         companyRepository.deleteAll();
+    }
+
+    public Company getCompanyById(long id) {
+        Optional<Company> optionalCompany = companyRepository.findById(id);
+        if(optionalCompany.isPresent()){
+            return optionalCompany.get();
+        }
+        return null;
     }
 }
